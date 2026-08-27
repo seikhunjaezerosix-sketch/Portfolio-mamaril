@@ -1763,117 +1763,107 @@ footer {
 
 }
 
-
-
 /* =====================================================
    VIDEO MODAL
 ===================================================== */
 
 .video-modal {
-
     position: fixed;
-
     inset: 0;
-
     z-index: 2000;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     padding: 30px;
 
-    background: rgba(1, 62, 55, 0.92);
+    background: rgba(1, 62, 55, 0.94);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
 
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 
     transition:
         opacity 0.35s ease,
         visibility 0.35s ease;
-
 }
-
 
 .video-modal.active {
-
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
-
 }
-
-
-.video-modal-content {
-
-    position: relative;
-
-    width: min(1000px, 95vw);
-
-    background: #000;
-
-    box-shadow:
-        0 30px 100px rgba(0, 0, 0, 0.4);
-
-    transform: scale(0.92);
-
-    transition:
-        transform 0.35s ease;
-
-}
-
-
-.video-modal.active .video-modal-content {
-
-    transform: scale(1);
-
-}
-
-
-.video-modal-content video {
-
-    display: block;
-
-    width: 100%;
-
-    max-height: 80vh;
-
-    background: #000;
-
-}
-
 
 
 /* =====================================================
-   VIDEO CLOSE BUTTON
+   VIDEO CONTAINER
+===================================================== */
+
+.video-modal-content {
+    position: relative;
+
+    width: min(1100px, 90vw);
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.5);
+
+    transform: scale(0.92);
+
+    transition: transform 0.35s ease;
+}
+
+.video-modal.active .video-modal-content {
+    transform: scale(1);
+}
+
+
+/* =====================================================
+   SHOWCASE VIDEO
+===================================================== */
+
+.video-modal-content video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+
+    background: #000;
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
 ===================================================== */
 
 .video-close {
-
     position: absolute;
 
-    top: -50px;
+    top: 15px;
+    right: 15px;
 
-    right: 0;
+    z-index: 20;
 
-    width: 40px;
-
-    height: 40px;
+    width: 42px;
+    height: 42px;
 
     border: 1px solid var(--cream);
-
     border-radius: 50%;
 
-    background: transparent;
+    background: rgba(1, 62, 55, 0.85);
 
     color: var(--cream);
 
@@ -1881,24 +1871,111 @@ footer {
 
     font-size: 1rem;
 
-    z-index: 5;
+    display: grid;
+    place-items: center;
 
     transition:
         background 0.3s ease,
-        color 0.3s ease;
-
+        color 0.3s ease,
+        transform 0.3s ease;
 }
-
 
 .video-close:hover {
-
     background: var(--cream);
-
     color: var(--green);
+
+    transform: rotate(90deg);
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 801px) {
+
+    .video-modal {
+        padding: 40px;
+    }
+
+    .video-modal-content {
+        width: min(1100px, 88vw);
+
+        aspect-ratio: 16 / 9;
+
+        max-height: 82vh;
+    }
+
+    .video-modal-content video {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+    }
 
 }
 
 
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .video-modal {
+        padding: 20px;
+    }
+
+    .video-modal-content {
+        width: 100%;
+
+        aspect-ratio: 16 / 9;
+
+        max-height: 80vh;
+    }
+
+    .video-modal-content video {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .video-modal {
+        padding: 15px;
+    }
+
+    .video-modal-content {
+        width: 100%;
+
+        aspect-ratio: 16 / 9;
+    }
+
+    .video-modal-content video {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+    }
+
+    .video-close {
+        top: 12px;
+        right: 12px;
+
+        width: 38px;
+        height: 38px;
+    }
+
+}
 
 /* =====================================================
    HOBBY IMAGE HOVER OVERLAY
@@ -2052,10 +2129,6 @@ footer {
     }
 
 
-    .video-close {
-
-        top: -48px;
-
-    }
+    
 
 }
