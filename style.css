@@ -1452,3 +1452,610 @@ footer {
     }
 
 }
+
+/* =====================================================
+   HOBBIES & INTERESTS
+===================================================== */
+
+.hobbies {
+
+    background: var(--cream);
+
+    color: var(--green);
+
+    border-bottom: 1px solid var(--line);
+
+    overflow: hidden;
+
+}
+
+
+.hobbies-heading {
+
+    align-items: end;
+
+}
+
+
+.hobbies-heading h2 {
+
+    margin-top: 25px;
+
+    font-size: clamp(3.5rem, 7vw, 7rem);
+
+    line-height: 0.85;
+
+    letter-spacing: -0.07em;
+
+    font-weight: 600;
+
+}
+
+
+.hobbies-heading h2 em {
+
+    font-family: var(--serif);
+
+    font-weight: 500;
+
+}
+
+
+.hobbies-heading > p {
+
+    color: var(--green);
+
+    opacity: 0.7;
+
+}
+
+
+
+/* =====================================================
+   HOBBY GRID
+===================================================== */
+
+.hobbies-grid {
+
+    margin-top: 75px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 55px 30px;
+
+}
+
+
+
+/* =====================================================
+   HOBBY CARD
+===================================================== */
+
+.hobby-card {
+
+    min-width: 0;
+
+}
+
+
+.hobby-media {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+    background: var(--green);
+
+}
+
+
+.hobby-media img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.7s ease,
+        filter 0.5s ease;
+
+}
+
+
+.hobby-card:hover .hobby-media img {
+
+    transform: scale(1.07);
+
+    filter: brightness(0.7);
+
+}
+
+
+
+/* =====================================================
+   HOBBY NUMBER
+===================================================== */
+
+.hobby-number {
+
+    position: absolute;
+
+    top: 18px;
+
+    right: 18px;
+
+    z-index: 3;
+
+    padding: 7px 10px;
+
+    background: var(--cream);
+
+    color: var(--green);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+
+/* =====================================================
+   VIDEO BUTTON
+===================================================== */
+
+.video-button {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%) scale(0.85);
+
+    width: 72px;
+
+    height: 72px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--cream);
+
+    background: var(--cream);
+
+    color: var(--green);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 1.15rem;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+.hobby-card:hover .video-button {
+
+    opacity: 1;
+
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+
+.video-button:hover {
+
+    background: var(--green);
+
+    color: var(--cream);
+
+    transform: translate(-50%, -50%) scale(1.1);
+
+}
+
+
+
+/* =====================================================
+   HOBBY INFORMATION
+===================================================== */
+
+.hobby-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--line);
+
+    margin-top: 15px;
+
+}
+
+
+.hobby-category {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.16em;
+
+    font-weight: 700;
+
+    opacity: 0.55;
+
+}
+
+
+.hobby-info h3 {
+
+    font-size: clamp(1.8rem, 3vw, 3rem);
+
+    font-weight: 500;
+
+    letter-spacing: -0.05em;
+
+}
+
+
+.hobby-arrow {
+
+    font-size: 1.5rem;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.hobby-card:hover .hobby-arrow {
+
+    transform: translate(5px, -5px);
+
+}
+
+
+
+/* =====================================================
+   HOBBY DESCRIPTION
+===================================================== */
+
+.hobby-description {
+
+    max-width: 470px;
+
+    margin-top: 12px;
+
+    font-size: 0.8rem;
+
+    line-height: 1.7;
+
+    opacity: 0.65;
+
+}
+
+
+
+/* =====================================================
+   VIDEO MODAL
+===================================================== */
+
+.video-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(1, 62, 55, 0.92);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+
+}
+
+
+.video-modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+.video-modal-content {
+
+    position: relative;
+
+    width: min(1000px, 95vw);
+
+    background: #000;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.4);
+
+    transform: scale(0.92);
+
+    transition:
+        transform 0.35s ease;
+
+}
+
+
+.video-modal.active .video-modal-content {
+
+    transform: scale(1);
+
+}
+
+
+.video-modal-content video {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 80vh;
+
+    background: #000;
+
+}
+
+
+
+/* =====================================================
+   VIDEO CLOSE BUTTON
+===================================================== */
+
+.video-close {
+
+    position: absolute;
+
+    top: -50px;
+
+    right: 0;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: 1px solid var(--cream);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--cream);
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    z-index: 5;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+.video-close:hover {
+
+    background: var(--cream);
+
+    color: var(--green);
+
+}
+
+
+
+/* =====================================================
+   HOBBY IMAGE HOVER OVERLAY
+===================================================== */
+
+.hobby-media::after {
+
+    content: "WATCH SHOWCASE";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 22px;
+
+    transform: translateX(-50%);
+
+    color: var(--cream);
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.15em;
+
+    font-weight: 700;
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
+    pointer-events: none;
+
+}
+
+
+.hobby-card:hover .hobby-media::after {
+
+    opacity: 0.9;
+
+}
+
+
+
+/* =====================================================
+   HOBBY RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .hobbies-heading {
+
+        display: block;
+
+    }
+
+
+    .hobbies-heading > p {
+
+        margin-top: 25px;
+
+        max-width: 500px;
+
+    }
+
+
+    .hobbies-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+        margin-top: 50px;
+
+    }
+
+
+    .hobby-media {
+
+        aspect-ratio: 16 / 10;
+
+    }
+
+
+    /* Always show play button on touch devices */
+
+    .video-button {
+
+        opacity: 1;
+
+        transform: translate(-50%, -50%) scale(1);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .hobbies-heading h2 {
+
+        font-size: 3.6rem;
+
+    }
+
+
+    .hobbies-grid {
+
+        gap: 45px;
+
+    }
+
+
+    .hobby-media {
+
+        aspect-ratio: 4 / 3;
+
+    }
+
+
+    .video-button {
+
+        width: 60px;
+
+        height: 60px;
+
+    }
+
+
+    .hobby-info h3 {
+
+        font-size: 1.8rem;
+
+    }
+
+
+    .hobby-description {
+
+        font-size: 0.75rem;
+
+    }
+
+
+    .video-modal {
+
+        padding: 15px;
+
+    }
+
+
+    .video-close {
+
+        top: -48px;
+
+    }
+
+}
